@@ -1,0 +1,105 @@
+/* ===== 全域：色板/幾何/陰影（可愛風） ===== */
+:root{--bg:#fff7fb;--bg-2:#fff1e6;--card:#ffffffcc;--text:#2e2e36;--muted:#6b6b76;--brand:#ff8ec7;--brand-2:#bde0fe;--mint:#cdeac0;--yolk:#ffe599;--shadow:0 10px 24px rgba(255,142,199,.22);--shadow-2:0 2px 8px rgba(0,0,0,.06);--radius:20px;--radius-lg:28px;--glass:blur(10px) saturate(120%);--focus:0 0 0 3px rgba(255,142,199,.5)}
+:root.dark{--bg:#13131a;--bg-2:#1a1a23;--card:#1f1f29cc;--text:#f2f2f7;--muted:#b8b8c7;--brand:#ff8ec7;--brand-2:#8ecbff;--mint:#9be6b5;--yolk:#ffdd7a;--shadow:0 10px 24px rgba(0,0,0,.35);--shadow-2:0 2px 8px rgba(0,0,0,.25);--glass:blur(10px) saturate(130%);--focus:0 0 0 3px rgba(142,197,255,.5)}
+/* ===== 基礎排版 & 強化可讀 ===== */
+*{box-sizing:border-box}html,body{height:100%}html{text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0;font:16px/1.75 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,'Noto Sans TC',PingFang TC,Helvetica,Arial;letter-spacing:.2px;background:radial-gradient(1200px 600px at 10% -10%,var(--bg-2),transparent 65%),radial-gradient(900px 520px at 110% 10%,var(--brand-2),transparent 45%),linear-gradient(var(--bg),var(--bg));color:var(--text);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;scroll-behavior:smooth}
+@media (max-width:980px){:root{font-size:15.5px}}
+@media (max-width:640px){:root{font-size:15px}}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+.container{width:min(1100px,92vw);margin:auto}
+.row{display:grid;gap:18px}
+.grid-2{grid-template-columns:1.1fr .9fr}
+@media (max-width:980px){.grid-2{grid-template-columns:1fr}}
+/* ===== Header（上：Header / 下：Drawer / 後：Overlay） ===== */
+.header-wrap{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,rgba(255,255,255,.78),rgba(255,255,255,0));backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+:root.dark .header-wrap{background:linear-gradient(180deg,rgba(24,24,32,.6),rgba(24,24,32,0))}
+header.header{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+.brand{display:flex;align-items:center;gap:10px}
+.brand-logo{width:36px;height:36px;border-radius:50%;display:inline-grid;place-items:center;background:conic-gradient(from 200deg at 50% 50%,var(--brand),var(--mint),var(--brand-2),var(--brand));box-shadow:var(--shadow-2)}
+.brand-logo::after{content:"🧠";font-size:20px}
+.brand-name{font-weight:800;letter-spacing:.4px;text-decoration:none}
+.nav a{display:inline-block;color:var(--text);text-decoration:none;padding:8px 12px;border-radius:12px}
+.nav a:hover{background:rgba(0,0,0,.05)}:root.dark .nav a:hover{background:rgba(255,255,255,.06)}
+.actions{display:flex;align-items:center;gap:8px}
+.btn,button,.chip{border:0;border-radius:999px;padding:10px 14px;background:var(--text);color:#fff;box-shadow:var(--shadow-2);cursor:pointer;transition:transform .12s ease}
+.btn:hover,.chip:hover{transform:translateY(-1px)}
+.btn.secondary{background:linear-gradient(90deg,var(--brand),var(--brand-2))}
+.iconbtn{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--card);backdrop-filter:var(--glass);box-shadow:var(--shadow-2);border:1px solid rgba(0,0,0,.04)}
+.iconbtn:focus-visible,.btn:focus-visible,.chip:focus-visible,.nav a:focus-visible{outline:none;box-shadow:var(--focus)}
+/* Drawer（行動版選單） */
+.drawer{position:fixed;inset:0 0 0 auto;width:min(320px,85vw);translate:100% 0;background:var(--bg-2);box-shadow:-12px 0 30px rgba(0,0,0,.15);transition:translate .3s ease;z-index:60;padding:18px}
+.drawer.open{translate:0 0}
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.18);backdrop-filter:blur(2px);opacity:0;pointer-events:none;transition:opacity .28s ease;z-index:55}
+.overlay.show{opacity:1;pointer-events:auto}
+/* ===== Hero 可愛區 ===== */
+.hero{position:relative;padding:28px 0 18px 0}
+.badges{display:flex;gap:10px;flex-wrap:wrap}
+.badges .chip{background:linear-gradient(90deg,var(--yolk),var(--brand-2));color:#333}
+.hero-wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:22px;align-items:center}
+@media (max-width:980px){.hero-wrap{grid-template-columns:1fr}}
+.h1{font-size:clamp(28px,4vw,42px);font-weight:900;letter-spacing:.6px;margin:6px 0 8px 0}
+.h1 i{font-style:normal;display:inline-block;transform:rotate(-3deg);background:linear-gradient(90deg,var(--brand),var(--yolk));-webkit-background-clip:text;background-clip:text;color:transparent}
+.subtitle{color:var(--muted)}
+.hero-card{background:var(--card);backdrop-filter:var(--glass);border-radius:var(--radius-lg);padding:18px;box-shadow:var(--shadow);border:1px solid rgba(0,0,0,.05);content-visibility:auto;contain-intrinsic-size:auto 320px}
+.hero-illus{aspect-ratio:4/3;border-radius:22px;background:repeating-conic-gradient(from 0deg at 50% 50%,rgba(255,142,199,.22) 0 15deg,rgba(189,224,254,.22) 15deg 30deg,rgba(205,234,192,.22) 30deg 45deg);position:relative;overflow:hidden}
+.sticker{position:absolute;translate:0 0;filter:drop-shadow(0 8px 16px rgba(0,0,0,.15));will-change:transform}
+.sticker.s1{top:10%;left:8%;font-size:42px;rotate:-12deg}
+.sticker.s2{bottom:6%;right:10%;font-size:44px;rotate:8deg}
+.sticker.s3{top:12%;right:36%;font-size:36px;rotate:5deg}
+/* ===== 卡片與內容區 ===== */
+.section{padding:24px 0}
+.card{background:var(--card);backdrop-filter:var(--glass);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow-2);border:1px solid rgba(0,0,0,.05);content-visibility:auto;contain-intrinsic-size:auto 200px}
+.card h3{margin:0 0 10px 0;font-size:20px}
+.kv{display:flex;gap:10px;flex-wrap:wrap}
+.kv span,.chip.kv{padding:8px 12px;border-radius:999px;background:linear-gradient(90deg,var(--mint),var(--brand-2));color:#243;box-shadow:var(--shadow-2)}
+.list{display:grid;gap:10px}
+.note{border-radius:16px;border:2px dashed rgba(0,0,0,.08);padding:12px;background:linear-gradient(180deg,rgba(255,255,255,.7),transparent)}
+/* 瀑布流（作品/相簿） */
+.masonry{columns:3;column-gap:14px}
+@media (max-width:980px){.masonry{columns:2}}
+@media (max-width:640px){.masonry{columns:1}}
+.pin{break-inside:avoid;padding:12px;margin:0 0 14px 0;border-radius:18px;background:var(--card);backdrop-filter:var(--glass);box-shadow:var(--shadow-2);border:1px solid rgba(0,0,0,.05);transition:transform .15s ease,box-shadow .15s ease}
+.pin:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.pin h4{margin:0 0 6px 0}
+.pin img{border-radius:12px}
+/* 標籤 */
+.tag{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(0,0,0,.07);font-size:12px;margin-left:6px}
+:root.dark .tag{background:rgba(255,255,255,.08)}
+/* 課表/心理學小卡 */
+.table{width:100%;border-collapse:separate;border-spacing:0 10px}
+.table th,.table td{padding:10px 12px;text-align:left}
+.table tr{background:var(--card);backdrop-filter:var(--glass);box-shadow:var(--shadow-2)}
+.table tr td:first-child,.table tr th:first-child{border-radius:14px 0 0 14px}
+.table tr td:last-child,.table tr th:last-child{border-radius:0 14px 14px 0}
+.psych-card{display:grid;gap:6px;padding:14px;border-radius:18px;background:linear-gradient(180deg,rgba(255,142,199,.12),rgba(189,224,254,.12));border:1px dashed rgba(0,0,0,.1)}
+/* 表單 */
+.input{padding:12px;border-radius:12px;border:1px solid rgba(0,0,0,.1);background:var(--bg-2);color:var(--text)}
+.input:focus-visible{outline:none;box-shadow:var(--focus)}
+.toast{display:none;padding:10px;border-radius:10px;background:linear-gradient(90deg,var(--mint),var(--brand-2));color:#143}
+/* Footer */
+footer{padding:28px 0 40px 0;color:var(--muted);text-align:center}
+/* 入場顯示（以 IntersectionObserver 控制） */
+.reveal{opacity:0;transform:translateY(10px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);contain:layout style paint}
+.reveal.show{opacity:1;transform:none}
+/* 可存取性：跳到主內容 */
+.skip{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+.skip:focus{left:8px;top:8px;width:auto;height:auto;padding:8px 10px;background:#000;color:#fff;border-radius:8px;z-index:100}
+/* Hero 主視覺：若要使用照片請加 .hero-photo */
+.hero-photo{background:url(images/yan-hero.jpg) center/cover}
+/* 相簿：篩選與燈箱 */
+.filters{display:flex;flex-wrap:wrap;gap:10px;margin:4px 0 6px 0}
+.filters .chip{background:linear-gradient(90deg,var(--mint),var(--brand-2));color:#243}
+.filters .chip.is-active{outline:2px solid rgba(0,0,0,.12)}
+.caption{display:flex;align-items:center;justify-content:space-between;margin-top:6px;color:var(--muted);font-size:14px}
+[hidden]{display:none!important}
+/* <dialog> 燈箱 */
+dialog#lightbox{border:0;padding:0;background:transparent}
+dialog#lightbox::backdrop{background:rgba(0,0,0,.45);backdrop-filter:blur(2px)}
+#lightbox{width:100vw;height:100vh;display:grid;place-items:center}
+.lightbox-close{position:fixed;top:16px;right:16px;width:44px;height:44px;border-radius:50%;border:0;background:var(--card);box-shadow:var(--shadow-2);cursor:pointer}
+.lightbox-close:focus-visible{outline:none;box-shadow:var(--focus)}
+#lightbox-img{max-width:min(92vw,1100px);max-height:84vh;border-radius:16px;box-shadow:var(--shadow);background:#000}
+.lightbox-cap{margin-top:10px;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.6);text-align:center}
+/* ===== 降低動態：系統偏好 ===== */
+@media (prefers-reduced-motion:reduce){*{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important} .reveal{opacity:1!important;transform:none!important}}
