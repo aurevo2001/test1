@@ -4,7 +4,7 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
   <title>聯絡 Yan｜小紙條 / 合作洽談</title>
-  <meta name="description" content="寫信給 Yan：小紙條、合作洽談、內容授權。可愛風玻璃擬態表單、膠囊選項與無障礙設計。"/>
+  <meta name="description" content="寫信給 Yan：小紙條、合作洽談、內容授權。浮動標籤表單、膠囊選項與可愛風玻璃擬態設計。"/>
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
@@ -52,7 +52,7 @@
       </div>
 
       <form id="msgForm" style="display:grid;gap:14px" novalidate>
-        <!-- 來意 -->
+        <!-- 來意（膠囊單選） -->
         <div>
           <div class="hint" style="margin-bottom:8px">請選擇聊聊主題</div>
           <div class="options" role="group" aria-label="來意">
@@ -64,23 +64,24 @@
           </div>
         </div>
 
-        <!-- 主旨 / 時段 -->
+        <!-- 主旨 / 回覆時段 -->
         <div class="form-grid">
           <div class="field flabel">
             <span class="prefix">🧾</span>
+            <input id="subject" name="subject" placeholder=" " required/>
             <label for="subject">主旨</label>
-            <input id="subject" name="subject" placeholder="例如：合作洽談／內容授權" required/>
           </div>
+
           <div class="field flabel">
             <span class="prefix">⏰</span>
-            <label for="time">回覆時段</label>
             <select id="time" name="time" required>
-              <option value="" disabled selected>選擇希望回覆時間</option>
+              <option value="" selected disabled hidden></option>
               <option>皆可</option>
               <option>平日白天</option>
               <option>平日晚上</option>
               <option>週末</option>
             </select>
+            <label for="time">回覆時段</label>
           </div>
         </div>
 
@@ -88,32 +89,32 @@
         <div class="form-grid">
           <div class="field flabel">
             <span class="prefix">✉️</span>
+            <input id="email" type="email" name="email" placeholder=" "/>
             <label for="email">Email</label>
-            <input id="email" type="email" name="email" placeholder="you@example.com"/>
           </div>
           <div class="field flabel">
             <span class="prefix">📸</span>
+            <input id="ig" name="ig" placeholder=" "/>
             <label for="ig">IG 帳號</label>
-            <input id="ig" name="ig" placeholder="@your_instagram"/>
           </div>
         </div>
 
-        <!-- 訊息 -->
+        <!-- 訊息（浮動標籤，無文字 placeholder） -->
         <div class="field flabel">
           <span class="prefix">💬</span>
+          <textarea id="msg" name="msg" rows="6" placeholder=" " required></textarea>
           <label for="msg">留言內容</label>
-          <textarea id="msg" name="msg" rows="6" required></textarea>
         </div>
 
         <!-- 參考連結 -->
         <div class="field flabel">
           <span class="prefix">🔗</span>
+          <input id="link" name="link" placeholder=" "/>
           <label for="link">參考連結</label>
-          <input id="link" name="link" placeholder="例如：活動頁、雲端連結、企劃書…"/>
         </div>
 
-        <!-- 防機器人 -->
-        <div style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden">
+        <!-- Honeypot（防機器人） -->
+        <div style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden" aria-hidden="true">
           <label>請不要填寫這個欄位<input name="website"/></label>
         </div>
 
@@ -123,28 +124,38 @@
           <span class="hint">一般 1–3 天內回覆</span>
         </div>
 
+        <!-- Toast 提示（由 app.js 控制） -->
         <div id="toast" class="toast" role="status" aria-live="polite">
           ✅ 已送出（前端示意）。若要改成真正提交，我可幫你串接 Google Forms。
         </div>
       </form>
     </div>
 
-    <!-- 右欄 -->
+    <!-- 右欄：其他方式 / FAQ / 隱私 -->
     <aside class="card reveal" style="display:grid;gap:14px">
       <h3 style="margin:0">其他方式</h3>
       <div class="info-list">
-        <div class="info-row"><div class="info-icon">📸</div><div><a class="chip" href="https://www.instagram.com/_cheng.yan_uni.life_/" target="_blank">Instagram</a></div></div>
-        <div class="info-row"><div class="info-icon">🖼️</div><div><a class="chip" href="gallery.html">看相簿</a></div></div>
-        <div class="info-row"><div class="info-icon">📚</div><div><a class="chip" href="notes.html">看筆記・作品</a></div></div>
+        <div class="info-row">
+          <div class="info-icon">📸</div>
+          <div><a class="chip" href="https://www.instagram.com/_cheng.yan_uni.life_/" target="_blank" rel="noopener">Instagram</a></div>
+        </div>
+        <div class="info-row">
+          <div class="info-icon">🖼️</div>
+          <div><a class="chip" href="gallery.html">看相簿</a></div>
+        </div>
+        <div class="info-row">
+          <div class="info-icon">📚</div>
+          <div><a class="chip" href="notes.html">看筆記・作品</a></div>
+        </div>
       </div>
 
-      <h3>FAQ</h3>
+      <h3 style="margin:6px 0 0 0">FAQ</h3>
       <details class="psych-card"><summary><strong>合作類型</strong></summary><p>以學習／校園內容為主：圖文、短片、活動分享。可預約檔期。</p></details>
       <details class="psych-card"><summary><strong>授權／轉載</strong></summary><p>非商業引用可附出處；商業用途請以表單洽談。</p></details>
       <details class="psych-card"><summary><strong>回覆時間</strong></summary><p>一般 1–3 天內回覆；急件請於訊息註明時限。</p></details>
 
-      <h3>隱私</h3>
-      <p class="subtitle">資料僅用於回覆，不對外公開。</p>
+      <h3 style="margin:6px 0 0 0">隱私</h3>
+      <p class="subtitle">資料僅用於回覆訊息，不會對外公開。若需刪除或更正，請再留言告知。</p>
     </aside>
 
   </section>
