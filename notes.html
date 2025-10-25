@@ -1,50 +1,88 @@
-<!doctype html><html lang="zh-Hant" class="no-js" data-theme="light"><head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
-<title>Yan 的文章與筆記</title>
-<meta name="description" content="Yan 的文章與筆記彙整：閱讀心得、收納、讀書 vlog 記錄與考試小技巧。"/>
-<link rel="stylesheet" href="style.css"/>
+<!doctype html>
+<html lang="zh-Hant" class="no-js" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>Yan 的筆記與文章</title>
+  <meta name="description" content="Yan 的筆記與文章：閱讀心得、收納、讀書 vlog、考試小技巧等整理。" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 <a href="#main" class="skip">跳到主內容</a>
-<div class="header-wrap"><header class="header container" role="navigation" aria-label="主選單">
-  <div class="brand"><a href="index.html" class="brand-logo" aria-label="Yan"></a><a href="index.html" class="brand-name">Yan の小宇宙</a></div>
-  <nav class="nav" aria-label="主要導覽"><a href="index.html#about">關於我</a><a href="index.html#works">筆記・作品</a><a href="index.html#schedule">課表</a><a href="index.html#contact">聯絡</a></nav>
-  <div class="actions"><button class="iconbtn" id="themeBtn" aria-label="切換主題">🌓</button><button class="iconbtn" id="menuBtn" aria-label="開啟選單">🍡</button></div>
-</header></div>
-<aside class="drawer" id="drawer" aria-hidden="true"><nav class="nav" style="display:grid;gap:8px"><a href="index.html#about">關於我</a><a href="index.html#works">筆記・作品</a><a href="index.html#schedule">課表</a><a href="index.html#contact">聯絡</a></nav></aside><div class="overlay" id="overlay"></div>
+
+<!-- Header -->
+<div class="header-wrap">
+  <header class="header container" role="navigation" aria-label="主選單">
+    <div class="brand">
+      <a href="index.html" class="brand-logo" aria-label="Yan"></a>
+      <a href="index.html" class="brand-name">Yan の小宇宙</a>
+    </div>
+    <nav class="nav" aria-label="主要導覽">
+      <a href="index.html#about">關於我</a>
+      <a href="notes.html">筆記・作品</a>
+      <a href="gallery.html">相簿</a>
+      <a href="contact.html">聯絡</a>
+    </nav>
+    <div class="actions">
+      <button class="iconbtn" id="themeBtn" aria-label="切換主題">🌓</button>
+      <button class="iconbtn" id="menuBtn" aria-label="開啟選單">🍡</button>
+    </div>
+  </header>
+</div>
+
+<!-- Drawer & Overlay -->
+<aside class="drawer" id="drawer" aria-hidden="true">
+  <nav class="nav" style="display:grid;gap:8px">
+    <a href="index.html#about">關於我</a>
+    <a href="notes.html">筆記・作品</a>
+    <a href="gallery.html">相簿</a>
+    <a href="contact.html">聯絡</a>
+  </nav>
+</aside>
+<div class="overlay" id="overlay"></div>
 
 <main id="main" class="container section">
-  <!-- 文章列表 -->
-  <section class="row">
-    <article id="post-north-south" class="card reveal">
-      <h3>《北與南》閱讀分享（長文）</h3>
-      <!-- REPLACE START｜長文內容；對應 IG 主題 -->
-      <p>這本書吸引我的地方在於角色如何在階級與地域的落差間成長，尤其主角面對價值衝突時的選擇。筆記重點：① 社會結構帶來的認知框架；② 個人成長的自我監控；③ 關係中的情緒調節。延伸：把人物弧線畫成時間軸，標註「事件—信念—情緒—行為—結果」。</p>
-      <p>學習應用：閱讀完後，試做「ABCD 思考紀錄表」（Activating event, Belief, Consequence, Dispute）。</p>
-      <div class="kv"><a class="chip" href="https://www.instagram.com/p/DAxWnVbSTWk/" target="_blank" rel="noopener">對應 IG 貼文</a></div>
-      <!-- REPLACE END｜長文內容 -->
+  <!-- 文章/筆記牆（可加減項目） -->
+  <section class="masonry">
+    <article id="post-north-south" class="pin reveal">
+      <h4>《北與南》閱讀分享（長文）</h4>
+      <p>角色如何在階級與地域落差中成長；用 ABCD 思考紀錄表做情緒與信念檢視。</p>
+      <span class="tag">閱讀</span>
+      <a class="tag" href="https://www.instagram.com/p/DAxWnVbSTWk/" target="_blank" rel="noopener">IG 貼文</a>
     </article>
 
-    <article id="post-bag" class="card reveal">
-      <h3>我的後背包收納術</h3>
-      <p>關鍵是「分類 + 易取 + 穩定」。用內袋把 3 類物：讀書（iPad/筆袋）、生活（補給/衛生）、雜物（充電/鑰匙）分層；每類再用小袋固定位置。</p>
-      <div class="kv"><a class="chip" href="https://www.instagram.com/p/C960d9fSe9d/" target="_blank" rel="noopener">對應 IG 貼文</a></div>
+    <article id="post-bag" class="pin reveal">
+      <h4>我的後背包收納術</h4>
+      <p>分類＋易取＋穩定：讀書/生活/雜物三層，位置固定找東西更快。</p>
+      <span class="tag">收納</span>
+      <a class="tag" href="https://www.instagram.com/p/C960d9fSe9d/" target="_blank" rel="noopener">IG 貼文</a>
     </article>
 
-    <article id="post-vlog" class="card reveal">
-      <h3>Mini Vlog：study fragments</h3>
-      <p>拍 vlog 的小儀式：開機→倒數 5 秒→快速掃一次桌面→白噪音。鏡頭語言：近景（筆寫字）—中景（桌面）—遠景（走廊/窗邊）。</p>
-      <div class="kv"><a class="chip" href="https://www.instagram.com/reel/C8eZMaEyXAU/" target="_blank" rel="noopener">Reels</a></div>
+    <article id="post-vlog" class="pin reveal">
+      <h4>Mini Vlog：study fragments</h4>
+      <p>開機→倒數→桌面快掃；近景—中景—遠景的鏡頭語言讓畫面更有節奏。</p>
+      <span class="tag">vlog</span>
+      <a class="tag" href="https://www.instagram.com/reel/C8eZMaEyXAU/" target="_blank" rel="noopener">Reels</a>
     </article>
 
-    <article id="post-exam-chinese" class="card reveal">
-      <h3>學測國寫提分小指南</h3>
-      <p>題感 = 模板 × 例證庫。先固定 2 套開頭與結尾句型，再練 10 組例證（文學/時事/人物各 3+）。考前 2 週：每日 20 分鐘快寫。</p>
-      <div class="kv"><a class="chip" href="https://www.instagram.com/p/DDPGRyUyOvp/" target="_blank" rel="noopener">對應 IG 貼文</a></div>
+    <article id="post-exam-chinese" class="pin reveal">
+      <h4>學測國寫提分小指南</h4>
+      <p>題感 = 模板 × 例證庫；固定 2 套開頭/結尾 + 10 組例證，每日 20 分鐘快寫。</p>
+      <span class="tag">學測</span>
+      <a class="tag" href="https://www.instagram.com/p/DDPGRyUyOvp/" target="_blank" rel="noopener">IG 貼文</a>
+    </article>
+
+    <!-- 你也可以新增圖文筆記卡片（示例帶圖） -->
+    <article id="post-attention" class="pin reveal">
+      <h4>注意力｜導論速記</h4>
+      <img src="images/gal-1.jpg" alt="注意力導論筆記" />
+      <p>選擇性注意、雞尾酒會效應、瓶頸模型對照小卡。</p>
+      <span class="tag">認知</span><span class="tag">筆記</span>
     </article>
   </section>
 </main>
 
 <footer class="container"><div>© <span id="y"></span> Yan の小宇宙</div></footer>
 <script src="app.js"></script>
-</body></html>
+</body>
+</html>
