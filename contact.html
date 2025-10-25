@@ -1,11 +1,11 @@
 <!doctype html>
 <html lang="zh-Hant" data-theme="light">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
   <title>聯絡 Yan｜小紙條 / 合作洽談</title>
-  <meta name="description" content="寫信給 Yan：小紙條、合作洽談、內容授權。可愛風玻璃擬態表單、膠囊選項與無障礙設計。" />
-  <link rel="stylesheet" href="style.css" />
+  <meta name="description" content="寫信給 Yan：小紙條、合作洽談、內容授權。可愛風玻璃擬態表單、膠囊選項與無障礙設計。"/>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 <a class="skip" href="#main">跳到主內容</a>
@@ -48,13 +48,13 @@
     <div class="card reveal" style="display:grid;gap:14px">
       <div class="form-hero">
         <h2>一起聊聊吧 ✨</h2>
-        <p class="desc">合作／授權／學習交流都歡迎。填完送出，我會盡快回覆你。</p>
+        <p class="desc">合作、授權、學習交流都歡迎。填完送出，我會盡快回覆你。</p>
       </div>
 
       <form id="msgForm" style="display:grid;gap:14px" novalidate>
-        <!-- 來意（膠囊單選） -->
+        <!-- 來意 -->
         <div>
-          <div class="hint" style="margin-bottom:8px">來意（點選一個）</div>
+          <div class="hint" style="margin-bottom:8px">請選擇聊聊主題</div>
           <div class="options" role="group" aria-label="來意">
             <label class="option"><input type="radio" name="topic" value="合作洽談" required><span class="chip">🤝 合作洽談</span></label>
             <label class="option"><input type="radio" name="topic" value="內容授權"><span class="chip">📝 內容授權</span></label>
@@ -68,14 +68,14 @@
         <div class="form-grid">
           <div class="field flabel">
             <span class="prefix">🧾</span>
-            <label for="subject">主旨（必填）</label>
-            <input id="subject" name="subject" placeholder="例如：合作洽談／內容授權" required />
+            <label for="subject">主旨</label>
+            <input id="subject" name="subject" placeholder="例如：合作洽談／內容授權" required/>
           </div>
           <div class="field flabel">
             <span class="prefix">⏰</span>
-            <label for="time">希望回覆時段（必選）</label>
+            <label for="time">回覆時段</label>
             <select id="time" name="time" required>
-              <option value="" disabled selected>選擇希望回覆時段</option>
+              <option value="" disabled selected>選擇希望回覆時間</option>
               <option>皆可</option>
               <option>平日白天</option>
               <option>平日晚上</option>
@@ -88,33 +88,33 @@
         <div class="form-grid">
           <div class="field flabel">
             <span class="prefix">✉️</span>
-            <label for="email">Email（建議留下）</label>
-            <input id="email" type="email" name="email" placeholder="you@example.com" />
+            <label for="email">Email</label>
+            <input id="email" type="email" name="email" placeholder="you@example.com"/>
           </div>
           <div class="field flabel">
             <span class="prefix">📸</span>
-            <label for="ig">IG 帳號（選填）</label>
-            <input id="ig" name="ig" placeholder="@your_instagram" />
+            <label for="ig">IG 帳號</label>
+            <input id="ig" name="ig" placeholder="@your_instagram"/>
           </div>
         </div>
 
-        <!-- 訊息（無 placeholder） -->
+        <!-- 訊息 -->
         <div class="field flabel">
           <span class="prefix">💬</span>
-          <label for="msg">想對我說的話（必填）</label>
+          <label for="msg">留言內容</label>
           <textarea id="msg" name="msg" rows="6" required></textarea>
         </div>
 
         <!-- 參考連結 -->
         <div class="field flabel">
           <span class="prefix">🔗</span>
-          <label for="link">參考連結（選填，例如企劃書、活動頁）</label>
-          <input id="link" name="link" placeholder="例如：企劃書、雲端連結、活動頁…" />
+          <label for="link">參考連結</label>
+          <input id="link" name="link" placeholder="例如：活動頁、雲端連結、企劃書…"/>
         </div>
 
-        <!-- Honeypot（防機器人） -->
-        <div style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden" aria-hidden="true">
-          <label>請不要填寫這個欄位<input name="website" /></label>
+        <!-- 防機器人 -->
+        <div style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden">
+          <label>請不要填寫這個欄位<input name="website"/></label>
         </div>
 
         <!-- 動作 -->
@@ -123,47 +123,28 @@
           <span class="hint">一般 1–3 天內回覆</span>
         </div>
 
-        <!-- Toast 提示 -->
         <div id="toast" class="toast" role="status" aria-live="polite">
           ✅ 已送出（前端示意）。若要改成真正提交，我可幫你串接 Google Forms。
         </div>
       </form>
     </div>
 
-    <!-- 右欄資訊與 FAQ -->
+    <!-- 右欄 -->
     <aside class="card reveal" style="display:grid;gap:14px">
       <h3 style="margin:0">其他方式</h3>
       <div class="info-list">
-        <div class="info-row">
-          <div class="info-icon">📸</div>
-          <div><a class="chip" href="https://www.instagram.com/_cheng.yan_uni.life_/" target="_blank" rel="noopener">Instagram 直訊</a></div>
-        </div>
-        <div class="info-row">
-          <div class="info-icon">🖼️</div>
-          <div><a class="chip" href="gallery.html">看近期相簿</a></div>
-        </div>
-        <div class="info-row">
-          <div class="info-icon">📚</div>
-          <div><a class="chip" href="notes.html">看筆記・作品</a></div>
-        </div>
+        <div class="info-row"><div class="info-icon">📸</div><div><a class="chip" href="https://www.instagram.com/_cheng.yan_uni.life_/" target="_blank">Instagram</a></div></div>
+        <div class="info-row"><div class="info-icon">🖼️</div><div><a class="chip" href="gallery.html">看相簿</a></div></div>
+        <div class="info-row"><div class="info-icon">📚</div><div><a class="chip" href="notes.html">看筆記・作品</a></div></div>
       </div>
 
-      <h3 style="margin:6px 0 0 0">FAQ</h3>
-      <details class="psych-card">
-        <summary><strong>合作類型與檔期</strong></summary>
-        <p>以學習／校園相關為主：圖文、短片、活動分享。檔期依學期安排，歡迎先詢問。</p>
-      </details>
-      <details class="psych-card">
-        <summary><strong>內容授權 / 轉載</strong></summary>
-        <p>非商業引用可附出處連結；商業用途請以表單洽談授權條款。</p>
-      </details>
-      <details class="psych-card">
-        <summary><strong>回覆時間</strong></summary>
-        <p>一般 1–3 天內回覆；急件請於訊息註明時限與聯絡方式。</p>
-      </details>
+      <h3>FAQ</h3>
+      <details class="psych-card"><summary><strong>合作類型</strong></summary><p>以學習／校園內容為主：圖文、短片、活動分享。可預約檔期。</p></details>
+      <details class="psych-card"><summary><strong>授權／轉載</strong></summary><p>非商業引用可附出處；商業用途請以表單洽談。</p></details>
+      <details class="psych-card"><summary><strong>回覆時間</strong></summary><p>一般 1–3 天內回覆；急件請於訊息註明時限。</p></details>
 
-      <h3 style="margin:6px 0 0 0">隱私</h3>
-      <p class="subtitle">資料僅用於回覆訊息，不會對外公開。若需刪除或更正，請再留言告知。</p>
+      <h3>隱私</h3>
+      <p class="subtitle">資料僅用於回覆，不對外公開。</p>
     </aside>
 
   </section>
