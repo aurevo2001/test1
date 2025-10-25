@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-Hant" class="no-js" data-theme="light">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+  <title>聯絡 Yan</title>
+  <meta name="description" content="寫信給 Yan：小紙條 / 合作洽談。表單送出有提示（前端示意）。"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<a href="#main" class="skip">跳到主內容</a>
+
+<!-- Header -->
+<div class="header-wrap">
+  <header class="header container" role="navigation" aria-label="主選單">
+    <div class="brand">
+      <a href="index.html" class="brand-logo" aria-label="Yan"></a>
+      <a href="index.html" class="brand-name">Yan の小宇宙</a>
+    </div>
+    <nav class="nav" aria-label="主要導覽">
+      <a href="index.html#about">關於我</a>
+      <a href="notes.html">筆記・作品</a>
+      <a href="gallery.html">相簿</a>
+      <a href="contact.html">聯絡</a>
+    </nav>
+    <div class="actions">
+      <button class="iconbtn" id="themeBtn" aria-label="切換主題">🌓</button>
+      <button class="iconbtn" id="menuBtn" aria-label="開啟選單">🍡</button>
+    </div>
+  </header>
+</div>
+
+<!-- Drawer & Overlay -->
+<aside class="drawer" id="drawer" aria-hidden="true">
+  <nav class="nav" style="display:grid;gap:8px">
+    <a href="index.html#about">關於我</a>
+    <a href="notes.html">筆記・作品</a>
+    <a href="gallery.html">相簿</a>
+    <a href="contact.html">聯絡</a>
+  </nav>
+</aside>
+<div class="overlay" id="overlay"></div>
+
+<main id="main" class="container section">
+  <section class="row">
+    <div class="card reveal">
+      <h3>聯絡 / 小紙條</h3>
+      <!-- 前端示意：送出顯示 toast；若要串接 Google Forms 可交給我對應欄位 -->
+      <form id="msgForm" aria-label="留言表單" style="display:grid;gap:10px">
+        <input name="name" class="input" placeholder="你的名字" required/>
+        <input name="ig" class="input" placeholder="IG 帳號（選填）"/>
+        <textarea name="msg" class="input" placeholder="想對 Yan 說的話…" rows="5" required></textarea>
+        <button class="btn secondary" type="submit">送出紙條 ✉️</button>
+        <div id="toast" role="status" aria-live="polite" class="toast">
+          已送出（示意）。如要改為真實提交，我可幫你串接 Google Forms 或表單服務。
+        </div>
+      </form>
+    </div>
+
+    <div class="card reveal">
+      <h3>社群 & 其他</h3>
+      <div class="kv">
+        <a class="chip" href="https://www.instagram.com/_cheng.yan_uni.life_/" target="_blank" rel="noopener">📸 Instagram</a>
+        <a class="chip" href="notes.html">📚 筆記・作品</a>
+        <a class="chip" href="gallery.html">🖼️ 相簿</a>
+      </div>
+      <p class="note" style="margin-top:12px">📩 若需 Email 聯絡，可提供位址後我幫你加到頁面。</p>
+    </div>
+  </section>
+</main>
+
+<footer class="container"><div>© <span id="y"></span> Yan の小宇宙 · Contact</div></footer>
+<script src="app.js"></script>
+</body>
+</html>
