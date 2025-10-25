@@ -69,7 +69,7 @@
           <div class="field flabel">
             <span class="prefix">🧾</span>
             <label for="subject">主旨（必填）</label>
-            <input id="subject" name="subject" placeholder="例如：合作洽談／內容授權" required />
+            <input id="subject" name="subject" required />
           </div>
           <div class="field flabel">
             <span class="prefix">⏰</span>
@@ -89,16 +89,16 @@
           <div class="field flabel">
             <span class="prefix">✉️</span>
             <label for="email">Email（建議留下）</label>
-            <input id="email" type="email" name="email" placeholder="you@example.com" />
+            <input id="email" type="email" name="email" />
           </div>
           <div class="field flabel">
             <span class="prefix">📸</span>
             <label for="ig">IG 帳號（選填）</label>
-            <input id="ig" name="ig" placeholder="@your_instagram" />
+            <input id="ig" name="ig" />
           </div>
         </div>
 
-        <!-- 訊息 -->
+        <!-- 訊息（唯一保留 placeholder） -->
         <div class="field flabel">
           <span class="prefix">💬</span>
           <label for="msg">想對我說的話（必填）</label>
@@ -109,10 +109,10 @@
         <div class="field flabel">
           <span class="prefix">🔗</span>
           <label for="link">參考連結（選填，例如企劃書、活動頁）</label>
-          <input id="link" name="link" placeholder="例如：企劃書、雲端連結、活動頁…" />
+          <input id="link" name="link" />
         </div>
 
-        <!-- Honeypot（反機器人） -->
+        <!-- Honeypot（防機器人） -->
         <div style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden" aria-hidden="true">
           <label>請不要填寫這個欄位<input name="website" /></label>
         </div>
@@ -123,14 +123,14 @@
           <span class="hint">一般 1–3 天內回覆</span>
         </div>
 
-        <!-- Toast（由 app.js 控制顯示/隱藏） -->
+        <!-- Toast 提示 -->
         <div id="toast" class="toast" role="status" aria-live="polite">
           ✅ 已送出（前端示意）。若要改成真正提交，我可幫你串接 Google Forms。
         </div>
       </form>
     </div>
 
-    <!-- 右：其他方式／FAQ／隱私 -->
+    <!-- 右欄資訊與 FAQ -->
     <aside class="card reveal" style="display:grid;gap:14px">
       <h3 style="margin:0">其他方式</h3>
       <div class="info-list">
@@ -176,3 +176,4 @@
 <script src="app.js"></script>
 </body>
 </html>
+
