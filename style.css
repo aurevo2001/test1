@@ -278,3 +278,40 @@ footer{padding:28px 0 40px 0;color:var(--muted);text-align:center}
   .form-hero h2{text-align:center}
   .actions-bar{flex-direction:column;align-items:flex-start}
 }
+
+/* =============================== */
+/* 🔹 浮動標籤效果（所有 input/textarea 適用） */
+/* =============================== */
+.flabel{position:relative;display:block}
+.flabel input,.flabel textarea,.flabel select{
+  width:100%;padding:14px 14px 14px 44px;
+  border-radius:14px;border:1px solid rgba(255,255,255,.08);
+  background:var(--bg-2);color:var(--text);
+  font-size:15px;transition:all .25s ease}
+.flabel input:focus,.flabel textarea:focus,.flabel select:focus{
+  border:1px solid color-mix(in oklab,var(--brand-2) 40%,transparent);
+  outline:none;box-shadow:0 0 6px rgba(255,255,255,.08)}
+.flabel label{
+  position:absolute;left:44px;top:14px;
+  font-size:15px;color:color-mix(in oklab,var(--muted) 75%,var(--text) 25%);
+  pointer-events:none;transition:all .25s ease}
+
+/* 🪄 浮動條件：聚焦或有值時，label 縮小並上移 */
+.flabel input:focus+label,
+.flabel input:not(:placeholder-shown)+label,
+.flabel textarea:focus+label,
+.flabel textarea:not(:placeholder-shown)+label,
+.flabel select:focus+label,
+.flabel select:not([value=""])+label{
+  top:-6px;left:38px;
+  font-size:12px;padding:0 4px;
+  background:var(--bg-2);
+  color:var(--brand-2);
+  border-radius:4px}
+
+/* prefix emoji 調整置中 */
+.prefix{position:absolute;left:12px;top:50%;
+  transform:translateY(-50%);width:26px;height:26px;
+  display:grid;place-items:center;font-size:17px;
+  background:linear-gradient(180deg,#ffffff33,#00000022);
+  border-radius:50%}
