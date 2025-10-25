@@ -1,6 +1,5 @@
 /* ===============================
-   Yan の小宇宙 — 完整可愛風樣式 (最終版)
-   適用頁面：index.html / notes.html / gallery.html / contact.html
+   Yan の小宇宙 — 完整可愛風樣式 (最終修正版)
    =============================== */
 
 /* === 色板 === */
@@ -50,8 +49,25 @@ header.header{display:flex;align-items:center;justify-content:space-between;padd
 .btn.secondary{background:linear-gradient(90deg,var(--brand),var(--brand-2));color:#fff}
 .chip{border:1px solid rgba(0,0,0,.08);border-radius:999px;padding:10px 14px;background:var(--card);color:var(--text);box-shadow:var(--shadow-2);display:inline-flex;align-items:center;gap:6px}
 :root.dark .chip{border-color:rgba(255,255,255,.16)}
-.iconbtn{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--card);backdrop-filter:var(--glass);box-shadow:var(--shadow-2)}
-.iconbtn:focus-visible,.btn:focus-visible,.chip:focus-visible{outline:none;box-shadow:var(--focus)}
+
+/* === Icon Buttons 改良 === */
+.iconbtn{
+  width:44px;height:44px;border-radius:999px;
+  display:grid;place-items:center;
+  font-size:20px;line-height:1;
+  background:linear-gradient(180deg,color-mix(in oklab,var(--card) 85%,white 15%),color-mix(in oklab,var(--card) 70%,black 30%));
+  border:1px solid rgba(0,0,0,.10);
+  box-shadow:0 2px 6px rgba(0,0,0,.12),var(--shadow-2);
+  transition:transform .12s ease,box-shadow .15s ease,background .15s ease,border-color .15s ease;
+}
+:root.dark .iconbtn{
+  background:linear-gradient(180deg,color-mix(in oklab,#ffffff 20%,var(--card) 80%),color-mix(in oklab,#000000 15%,var(--card) 85%));
+  border-color:rgba(255,255,255,.18);
+  box-shadow:0 2px 8px rgba(0,0,0,.35);
+}
+.iconbtn:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(0,0,0,.14),var(--shadow)}
+.iconbtn:active{transform:translateY(0);box-shadow:0 2px 6px rgba(0,0,0,.18)}
+.iconbtn:focus-visible{outline:none;box-shadow:var(--focus),0 2px 8px rgba(0,0,0,.2)}
 
 /* === Drawer === */
 .drawer{position:fixed;inset:0 0 0 auto;width:min(320px,85vw);translate:100% 0;background:var(--bg-2);box-shadow:-12px 0 30px rgba(0,0,0,.15);transition:translate .3s ease;z-index:60;padding:18px}
