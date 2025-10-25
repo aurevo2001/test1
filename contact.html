@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
-  <title>聯絡 Yan</title>
-  <meta name="description" content="寫信給 Yan：小紙條 / 合作洽談。表單送出有提示（前端示意）。"/>
+  <title>聯絡 Yan｜小紙條 / 合作洽談</title>
+  <meta name="description" content="寫信給 Yan：小紙條、合作洽談、內容授權。表單送出會顯示提示（前端示意）；也提供 Instagram 與 Email 聯絡方式。"/>
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
@@ -21,7 +21,7 @@
       <a href="index.html#about">關於我</a>
       <a href="notes.html">筆記・作品</a>
       <a href="gallery.html">相簿</a>
-      <a href="contact.html">聯絡</a>
+      <a href="contact.html" aria-current="page">聯絡</a>
     </nav>
     <div class="actions">
       <button class="iconbtn" id="themeBtn" aria-label="切換主題">🌓</button>
@@ -36,36 +36,123 @@
     <a href="index.html#about">關於我</a>
     <a href="notes.html">筆記・作品</a>
     <a href="gallery.html">相簿</a>
-    <a href="contact.html">聯絡</a>
+    <a href="contact.html" aria-current="page">聯絡</a>
   </nav>
 </aside>
 <div class="overlay" id="overlay"></div>
 
 <main id="main" class="container section">
-  <section class="row">
+  <section class="row grid-2">
+    <!-- ===== 連絡表單 ===== -->
     <div class="card reveal">
-      <h3>聯絡 / 小紙條</h3>
-      <!-- 前端示意：送出顯示 toast；若要串接 Google Forms 可交給我對應欄位 -->
-      <form id="msgForm" aria-label="留言表單" style="display:grid;gap:10px">
-        <input name="name" class="input" placeholder="你的名字" required/>
-        <input name="ig" class="input" placeholder="IG 帳號（選填）"/>
-        <textarea name="msg" class="input" placeholder="想對 Yan 說的話…" rows="5" required></textarea>
-        <button class="btn secondary" type="submit">送出紙條 ✉️</button>
+      <h3 style="margin:0 0 10px 0">聯絡 / 小紙條</h3>
+      <p class="subtitle" id="formHelp">填完送出即可（目前為前端示意，會顯示送出提示）。若要改成真正提交，可提供 Google Forms 連結，我會幫你串接。</p>
+
+      <form id="msgForm" aria-describedby="formHelp" style="display:grid;gap:12px">
+        <!-- 主旨 -->
+        <label>
+          主旨（必填）
+          <input name="subject" class="input" placeholder="例如：合作洽談／內容授權／想說句話…" required />
+        </label>
+
+        <!-- 來意類別 -->
+        <label>
+          來意（必選）
+          <select name="topic" class="input" required>
+            <option value="" disabled selected>請選擇</option>
+            <option>合作洽談（品牌／校園活動）</option>
+            <option>內容授權與轉載</option>
+            <option>學習交流（筆記、讀書）</option>
+            <option>站務相關（錯字／改版建議）</option>
+            <option>其他</option>
+          </select>
+        </label>
+
+        <!-- 聯絡方式：Email 或 IG 二擇一（皆可填） -->
+        <div class="row" style="grid-template-columns:1fr 1fr; gap:12px">
+          <label>
+            Email（建議）
+            <input type="email" name="email" class="input" placeholder="you@example.com" />
+          </label>
+          <label>
+            IG 帳號（選填）
+            <input name="ig" class="input" placeholder="@your_instagram" />
+          </label>
+        </div>
+
+        <!-- 希望回覆時間 -->
+        <label>
+          希望回覆時段（選填）
+          <select name="time" class="input">
+            <option value="" selected>皆可</option>
+            <option>平日白天</option>
+            <option>平日晚上</option>
+            <option>週末</option>
+          </select>
+        </label>
+
+        <!-- 訊息 -->
+        <label>
+          想對我說的話（必填）
+          <textarea name="msg" class="input" rows="6" placeholder="想聊聊什麼？如果是合作，請簡述主題／期望檔期／預算區間…等" required></textarea>
+        </label>
+
+        <!-- 附加資訊（可選） -->
+        <label>
+          參考連結（選填）
+          <input name="link" class="input" placeholder="例如：企劃書、雲端連結、活動頁…" />
+        </label>
+
+        <!-- Honeypot：反機器人（使用者看不到；若填則視為機器人） -->
+        <div style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden">
+          <label>請不要填寫這個欄位<input class="input" name="website"></label>
+        </div>
+
+        <!-- 動作 -->
+        <div style="display:flex;gap:10px;align-items:center">
+          <button class="btn secondary" type="submit">送出紙條 ✉️</button>
+          <span class="subtitle">⌛ 一般 1–3 天內回覆</span>
+        </div>
+
+        <!-- Toast 由 app.js 控制顯示 -->
         <div id="toast" role="status" aria-live="polite" class="toast">
-          已送出（示意）。如要改為真實提交，我可幫你串接 Google Forms 或表單服務。
+          ✅ 已送出（前端示意）。若要改成真正提交，我可幫你串接 Google Forms 或表單服務。
         </div>
       </form>
     </div>
 
-    <div class="card reveal">
-      <h3>社群 & 其他</h3>
-      <div class="kv">
+    <!-- ===== 其他方式 / FAQ / 隱私 ===== -->
+    <aside class="card reveal">
+      <h3 style="margin:0 0 10px 0">社群 & 其他</h3>
+      <div class="kv" style="margin-bottom:10px">
         <a class="chip" href="https://www.instagram.com/_cheng.yan_uni.life_/" target="_blank" rel="noopener">📸 Instagram</a>
         <a class="chip" href="notes.html">📚 筆記・作品</a>
         <a class="chip" href="gallery.html">🖼️ 相簿</a>
       </div>
-      <p class="note" style="margin-top:12px">📩 若需 Email 聯絡，可提供位址後我幫你加到頁面。</p>
-    </div>
+
+      <div class="note" style="margin:10px 0">
+        📩 想直接寫 Email？請在上方留下你的信箱與需求，我會回信給你。若要公開 Email 位址，我可以幫你新增到頁面。
+      </div>
+
+      <h3 style="margin:16px 0 8px 0">常見問題</h3>
+      <div class="list" style="margin-top:6px">
+        <details class="psych-card">
+          <summary><strong>合作檔期與類型</strong></summary>
+          <p>以學習與校園相關為主：文案 / 圖文 / 短片 / 校園活動分享。檔期依學期作息排程，歡迎先行詢問。</p>
+        </details>
+        <details class="psych-card">
+          <summary><strong>內容授權 / 轉載</strong></summary>
+          <p>可授權非商業引用，請附上出處連結。商業用途或大量轉載，請透過表單洽談授權條款。</p>
+        </details>
+        <details class="psych-card">
+          <summary><strong>回覆時間</strong></summary>
+          <p>平日課業為主，通常 1–3 天內回覆。急件請於訊息中註明時限與聯絡方式。</p>
+        </details>
+      </div>
+
+      <h3 style="margin:16px 0 8px 0">隱私與資料使用</h3>
+      <p class="subtitle">你填寫的資訊僅用於回覆訊息，不會公開或對外分享。若要刪除或更正資料，可再留言告訴我。</p>
+    </aside>
   </section>
 </main>
 
