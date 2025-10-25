@@ -1,21 +1,21 @@
 <!doctype html>
-<html lang="zh-Hant" class="no-js" data-theme="light">
+<html lang="zh-Hant" data-theme="light">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <title>聯絡 Yan｜小紙條 / 合作洽談</title>
-  <meta name="description" content="寫信給 Yan：小紙條、合作洽談、內容授權。美化表單、膠囊選項、玻璃擬態風格。"/>
-  <link rel="stylesheet" href="style.css"/>
+  <meta name="description" content="寫信給 Yan：小紙條、合作洽談、內容授權。可愛風玻璃擬態表單、膠囊選項與無障礙設計。" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<a href="#main" class="skip">跳到主內容</a>
+<a class="skip" href="#main">跳到主內容</a>
 
 <!-- Header -->
 <div class="header-wrap">
   <header class="header container" role="navigation" aria-label="主選單">
     <div class="brand">
-      <a href="index.html" class="brand-logo" aria-label="Yan"></a>
-      <a href="index.html" class="brand-name">Yan の小宇宙</a>
+      <a class="brand-logo" href="index.html" aria-label="Yan"></a>
+      <a class="brand-name" href="index.html">Yan の小宇宙</a>
     </div>
     <nav class="nav" aria-label="主要導覽">
       <a href="index.html#about">關於我</a>
@@ -30,7 +30,7 @@
   </header>
 </div>
 
-<!-- Drawer & Overlay -->
+<!-- Drawer + Overlay -->
 <aside class="drawer" id="drawer" aria-hidden="true">
   <nav class="nav" style="display:grid;gap:8px">
     <a href="index.html#about">關於我</a>
@@ -43,18 +43,19 @@
 
 <main id="main" class="container section">
   <section class="row grid-2">
-    <!-- 左：表單 -->
+
+    <!-- 左：聯絡表單 -->
     <div class="card reveal" style="display:grid;gap:14px">
       <div class="form-hero">
         <h2>一起聊聊吧 ✨</h2>
-        <p class="desc">合作／授權／學習交流都歡迎。填寫幾個小欄位，我會盡快回覆你。</p>
+        <p class="desc">合作／授權／學習交流都歡迎。填完送出，我會盡快回覆你。</p>
       </div>
 
-      <form id="msgForm" style="display:grid;gap:14px">
-        <!-- 來意（膠囊） -->
+      <form id="msgForm" style="display:grid;gap:14px" novalidate>
+        <!-- 來意（膠囊單選） -->
         <div>
-          <div class="hint" style="margin-bottom:8px">來意（點選一個或多個）</div>
-          <div class="options">
+          <div class="hint" style="margin-bottom:8px">來意（點選一個）</div>
+          <div class="options" role="group" aria-label="來意">
             <label class="option"><input type="radio" name="topic" value="合作洽談" required><span class="chip">🤝 合作洽談</span></label>
             <label class="option"><input type="radio" name="topic" value="內容授權"><span class="chip">📝 內容授權</span></label>
             <label class="option"><input type="radio" name="topic" value="學習交流"><span class="chip">📚 學習交流</span></label>
@@ -67,16 +68,19 @@
         <div class="form-grid">
           <div class="field flabel">
             <span class="prefix">🧾</span>
-            <input name="subject" placeholder=" " required />
-            <label>主旨（必填）</label>
+            <label for="subject">主旨（必填）</label>
+            <input id="subject" name="subject" placeholder="例如：合作洽談／內容授權" required />
           </div>
           <div class="field flabel">
             <span class="prefix">⏰</span>
-            <select name="time" required>
+            <label for="time">希望回覆時段（必選）</label>
+            <select id="time" name="time" required>
               <option value="" disabled selected>選擇希望回覆時段</option>
-              <option>皆可</option><option>平日白天</option><option>平日晚上</option><option>週末</option>
+              <option>皆可</option>
+              <option>平日白天</option>
+              <option>平日晚上</option>
+              <option>週末</option>
             </select>
-            <label>希望回覆時段（必選）</label>
           </div>
         </div>
 
@@ -84,33 +88,33 @@
         <div class="form-grid">
           <div class="field flabel">
             <span class="prefix">✉️</span>
-            <input type="email" name="email" placeholder=" " />
-            <label>Email（建議留下）</label>
+            <label for="email">Email（建議留下）</label>
+            <input id="email" type="email" name="email" placeholder="you@example.com" />
           </div>
           <div class="field flabel">
             <span class="prefix">📸</span>
-            <input name="ig" placeholder=" " />
-            <label>IG 帳號（選填）</label>
+            <label for="ig">IG 帳號（選填）</label>
+            <input id="ig" name="ig" placeholder="@your_instagram" />
           </div>
         </div>
 
         <!-- 訊息 -->
         <div class="field flabel">
           <span class="prefix">💬</span>
-          <textarea name="msg" rows="6" placeholder=" " required></textarea>
-          <label>想對我說的話（必填）</label>
+          <label for="msg">想對我說的話（必填）</label>
+          <textarea id="msg" name="msg" rows="6" placeholder="想聊聊什麼？如果是合作，請簡述主題／期望檔期／預算區間…等" required></textarea>
         </div>
 
         <!-- 參考連結 -->
         <div class="field flabel">
           <span class="prefix">🔗</span>
-          <input name="link" placeholder=" " />
-          <label>參考連結（選填，例如企劃書、活動頁）</label>
+          <label for="link">參考連結（選填，例如企劃書、活動頁）</label>
+          <input id="link" name="link" placeholder="例如：企劃書、雲端連結、活動頁…" />
         </div>
 
-        <!-- Honeypot -->
-        <div style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden">
-          <label>請不要填寫這個欄位<input class="input" name="website"></label>
+        <!-- Honeypot（反機器人） -->
+        <div style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden" aria-hidden="true">
+          <label>請不要填寫這個欄位<input name="website" /></label>
         </div>
 
         <!-- 動作 -->
@@ -119,13 +123,14 @@
           <span class="hint">一般 1–3 天內回覆</span>
         </div>
 
-        <div id="toast" role="status" aria-live="polite" class="toast">
+        <!-- Toast（由 app.js 控制顯示/隱藏） -->
+        <div id="toast" class="toast" role="status" aria-live="polite">
           ✅ 已送出（前端示意）。若要改成真正提交，我可幫你串接 Google Forms。
         </div>
       </form>
     </div>
 
-    <!-- 右：其他聯絡 / FAQ / 隱私 -->
+    <!-- 右：其他方式／FAQ／隱私 -->
     <aside class="card reveal" style="display:grid;gap:14px">
       <h3 style="margin:0">其他方式</h3>
       <div class="info-list">
@@ -160,10 +165,14 @@
       <h3 style="margin:6px 0 0 0">隱私</h3>
       <p class="subtitle">資料僅用於回覆訊息，不會對外公開。若需刪除或更正，請再留言告知。</p>
     </aside>
+
   </section>
 </main>
 
-<footer class="container"><div>© <span id="y"></span> Yan の小宇宙 · Contact</div></footer>
+<footer class="container">
+  <div>© <span id="y"></span> Yan の小宇宙 · Contact</div>
+</footer>
+
 <script src="app.js"></script>
 </body>
 </html>
