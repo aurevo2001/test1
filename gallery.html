@@ -1,23 +1,52 @@
-<!doctype html><html lang="zh-Hant" class="no-js" data-theme="light"><head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
-<title>Yan 的作品相簿｜Gallery</title>
-<meta name="description" content="Yan 的作品相簿：讀書筆記、閱讀心得、vlog 截圖與校園日常。支援燈箱與分類篩選。"/>
-<link rel="stylesheet" href="style.css"/>
+<!doctype html>
+<html lang="zh-Hant" class="no-js" data-theme="light">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+  <title>Yan 的作品相簿｜Gallery</title>
+  <meta name="description" content="Yan 的作品相簿：讀書筆記、閱讀心得、vlog 截圖與校園日常。點縮圖可放大、可分類篩選。"/>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 <a href="#main" class="skip">跳到主內容</a>
-<div class="header-wrap"><header class="header container" role="navigation" aria-label="主選單">
-  <div class="brand"><a href="index.html" class="brand-logo" aria-label="Yan"></a><a href="index.html" class="brand-name">Yan の小宇宙</a></div>
-  <nav class="nav" aria-label="主要導覽"><a href="index.html#about">關於我</a><a href="index.html#works">筆記・作品</a><a href="notes.html">更多文章</a><a href="index.html#contact">聯絡</a></nav>
-  <div class="actions"><button class="iconbtn" id="themeBtn" aria-label="切換主題">🌓</button><button class="iconbtn" id="menuBtn" aria-label="開啟選單">🍡</button></div>
-</header></div>
-<aside class="drawer" id="drawer" aria-hidden="true"><nav class="nav" style="display:grid;gap:8px"><a href="index.html#about">關於我</a><a href="index.html#works">筆記・作品</a><a href="notes.html">更多文章</a><a href="index.html#contact">聯絡</a></nav></aside><div class="overlay" id="overlay"></div>
+
+<!-- Header -->
+<div class="header-wrap">
+  <header class="header container" role="navigation" aria-label="主選單">
+    <div class="brand">
+      <a href="index.html" class="brand-logo" aria-label="Yan"></a>
+      <a href="index.html" class="brand-name">Yan の小宇宙</a>
+    </div>
+    <nav class="nav" aria-label="主要導覽">
+      <a href="index.html#about">關於我</a>
+      <a href="notes.html">筆記・作品</a>
+      <a href="gallery.html">相簿</a>
+      <a href="contact.html">聯絡</a>
+    </nav>
+    <div class="actions">
+      <button class="iconbtn" id="themeBtn" aria-label="切換主題">🌓</button>
+      <button class="iconbtn" id="menuBtn" aria-label="開啟選單">🍡</button>
+    </div>
+  </header>
+</div>
+
+<!-- Drawer & Overlay -->
+<aside class="drawer" id="drawer" aria-hidden="true">
+  <nav class="nav" style="display:grid;gap:8px">
+    <a href="index.html#about">關於我</a>
+    <a href="notes.html">筆記・作品</a>
+    <a href="gallery.html">相簿</a>
+    <a href="contact.html">聯絡</a>
+  </nav>
+</aside>
+<div class="overlay" id="overlay"></div>
 
 <main id="main" class="section container">
   <section class="card reveal">
     <h3 style="margin:0 0 10px 0">作品相簿</h3>
-    <p class="subtitle" style="margin:0 0 12px 0">讀書筆記、閱讀心得、vlog 與校園日常，點擊縮圖可放大瀏覽。</p>
-    <!-- 分類篩選 -->
+    <p class="subtitle" style="margin:0 0 12px 0">點擊縮圖可放大；可用下列篩選快速查看主題。</p>
+
+    <!-- 篩選 -->
     <div class="filters" id="filters" role="tablist" aria-label="篩選">
       <button class="chip is-active" data-filter="all" role="tab" aria-selected="true">全部</button>
       <button class="chip" data-filter="筆記" role="tab">筆記</button>
@@ -27,22 +56,57 @@
     </div>
   </section>
 
-  <!-- 相簿瀑布流 -->
+  <!-- 相簿：瀑布流 -->
   <section class="masonry" id="gallery">
-    <!-- REPLACE START｜每一張圖一個 .pin；img 的 src 改成你的實際圖片 -->
-    <figure class="pin reveal" data-tags="筆記"><a href="images/gal-1.jpg" data-lightbox data-caption="注意力導論｜關鍵模型速記"><img src="images/gal-1.jpg" alt="注意力導論筆記"/></a><figcaption class="caption">注意力導論｜關鍵模型速記<span class="tag">筆記</span></figcaption></figure>
-    <figure class="pin reveal" data-tags="閱讀"><a href="images/gal-2.jpg" data-lightbox data-caption="《北與南》閱讀筆記"><img src="images/gal-2.jpg" alt="北與南閱讀筆記"/></a><figcaption class="caption">《北與南》閱讀筆記<span class="tag">閱讀</span></figcaption></figure>
-    <figure class="pin reveal" data-tags="vlog 校園"><a href="images/gal-3.jpg" data-lightbox data-caption="study fragments｜vlog 截圖"><img src="images/gal-3.jpg" alt="study fragments vlog 截圖"/></a><figcaption class="caption">study fragments｜vlog 截圖<span class="tag">vlog</span><span class="tag">校園</span></figcaption></figure>
-    <figure class="pin reveal" data-tags="校園"><a href="images/gal-4.jpg" data-lightbox data-caption="校園午後｜窗邊光"><img src="images/gal-4.jpg" alt="校園午後窗邊光"/></a><figcaption class="caption">校園午後｜窗邊光<span class="tag">校園</span></figcaption></figure>
-    <figure class="pin reveal" data-tags="筆記"><a href="images/gal-5.jpg" data-lightbox data-caption="人格五因素｜OCEAN 對照"><img src="images/gal-5.jpg" alt="人格五因素筆記"/></a><figcaption class="caption">人格五因素｜OCEAN 對照<span class="tag">筆記</span></figcaption></figure>
-    <figure class="pin reveal" data-tags="閱讀"><a href="images/gal-6.jpg" data-lightbox data-caption="書摘｜情緒調節的日常練習"><img src="images/gal-6.jpg" alt="情緒調節書摘"/></a><figcaption class="caption">書摘｜情緒調節的日常練習<span class="tag">閱讀</span></figcaption></figure>
-    <!-- REPLACE END｜新增圖片請複製上列結構 -->
+    <!-- REPLACE START：把 src/href 換成你的實圖 -->
+    <figure class="pin reveal" data-tags="筆記">
+      <a href="images/gal-1.jpg" data-lightbox data-caption="注意力導論｜關鍵模型速記">
+        <img src="images/gal-1.jpg" alt="注意力導論筆記"/>
+      </a>
+      <figcaption class="caption">注意力導論｜關鍵模型速記<span class="tag">筆記</span></figcaption>
+    </figure>
+
+    <figure class="pin reveal" data-tags="閱讀">
+      <a href="images/gal-2.jpg" data-lightbox data-caption="《北與南》閱讀筆記">
+        <img src="images/gal-2.jpg" alt="《北與南》閱讀筆記"/>
+      </a>
+      <figcaption class="caption">《北與南》閱讀筆記<span class="tag">閱讀</span></figcaption>
+    </figure>
+
+    <figure class="pin reveal" data-tags="vlog 校園">
+      <a href="images/gal-3.jpg" data-lightbox data-caption="study fragments｜vlog 截圖">
+        <img src="images/gal-3.jpg" alt="study fragments vlog 截圖"/>
+      </a>
+      <figcaption class="caption">study fragments｜vlog 截圖<span class="tag">vlog</span><span class="tag">校園</span></figcaption>
+    </figure>
+
+    <figure class="pin reveal" data-tags="校園">
+      <a href="images/gal-4.jpg" data-lightbox data-caption="校園午後｜窗邊光">
+        <img src="images/gal-4.jpg" alt="校園午後窗邊光"/>
+      </a>
+      <figcaption class="caption">校園午後｜窗邊光<span class="tag">校園</span></figcaption>
+    </figure>
+
+    <figure class="pin reveal" data-tags="筆記">
+      <a href="images/gal-5.jpg" data-lightbox data-caption="人格五因素｜OCEAN 對照">
+        <img src="images/gal-5.jpg" alt="人格五因素筆記"/>
+      </a>
+      <figcaption class="caption">人格五因素｜OCEAN 對照<span class="tag">筆記</span></figcaption>
+    </figure>
+
+    <figure class="pin reveal" data-tags="閱讀">
+      <a href="images/gal-6.jpg" data-lightbox data-caption="書摘｜情緒調節的日常練習">
+        <img src="images/gal-6.jpg" alt="情緒調節書摘"/>
+      </a>
+      <figcaption class="caption">書摘｜情緒調節的日常練習<span class="tag">閱讀</span></figcaption>
+    </figure>
+    <!-- REPLACE END -->
   </section>
 </main>
 
 <footer class="container"><div>© <span id="y"></span> Yan の小宇宙 · Gallery</div></footer>
 
-<!-- 燈箱：使用 <dialog>，由 app.js 控制 -->
+<!-- 燈箱：<dialog> 由 app.js 控制 -->
 <dialog id="lightbox" aria-label="圖片預覽">
   <button class="lightbox-close" aria-label="關閉">✕</button>
   <img id="lightbox-img" alt="lightbox"/>
@@ -50,4 +114,5 @@
 </dialog>
 
 <script src="app.js"></script>
-</body></html>
+</body>
+</html>
