@@ -1,20 +1,23 @@
 /* ===============================
-   Yan の小宇宙 — 高品質可愛風樣式（最終整合版）
+   Yan の小宇宙 — 完整可愛風樣式 (最終版)
+   適用頁面：index.html / notes.html / gallery.html / contact.html
    =============================== */
 
-/* === 色板與陰影 === */
+/* === 色板 === */
 :root{
   --bg:#fff7fb;--bg-2:#fff1e6;--card:#ffffffee;--text:#2b2b34;--muted:#5e5e6b;
   --brand:#ff8ec7;--brand-2:#bde0fe;--mint:#cdeac0;--yolk:#ffe599;
   --shadow:0 10px 24px rgba(255,142,199,.22);--shadow-2:0 2px 8px rgba(0,0,0,.08);
   --radius:20px;--radius-lg:28px;--glass:blur(10px) saturate(120%);
-  --focus:0 0 0 3px rgba(255,142,199,.5)
+  --focus:0 0 0 3px rgba(255,142,199,.5);
+  --btn-bg:#2b2b34;--btn-fg:#ffffff;--btn-bg-hover:#1f1f27;
 }
 :root.dark{
   --bg:#12121a;--bg-2:#181822;--card:#242433f2;--text:#f6f6fb;--muted:#c9c9d6;
   --brand:#ff8ec7;--brand-2:#8ecbff;--mint:#9be6b5;--yolk:#ffdd7a;
   --shadow:0 10px 24px rgba(0,0,0,.35);--shadow-2:0 2px 8px rgba(0,0,0,.25);
-  --glass:blur(10px) saturate(130%);--focus:0 0 0 3px rgba(142,197,255,.5)
+  --glass:blur(10px) saturate(130%);--focus:0 0 0 3px rgba(142,197,255,.5);
+  --btn-bg:#3a3a47;--btn-fg:#ffffff;--btn-bg-hover:#2e2e3a;
 }
 
 /* === 基礎排版 === */
@@ -25,25 +28,26 @@ body{margin:0;font:16px/1.75 ui-sans-serif,system-ui,-apple-system,Segoe UI,Robo
 @media(max-width:980px){:root{font-size:15.5px}}@media(max-width:640px){:root{font-size:15px}}
 img{max-width:100%;display:block}a{color:inherit;text-decoration:none}
 
-/* === 版寬與格線 === */
+/* === 版寬 === */
 .container{width:min(1100px,92vw);margin:auto}
 .row{display:grid;gap:18px}.grid-2{grid-template-columns:1.1fr .9fr}
 @media(max-width:980px){.grid-2{grid-template-columns:1fr}}
 
-/* === Header / Drawer === */
+/* === Header === */
 .header-wrap{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,rgba(255,255,255,.82),rgba(255,255,255,0));backdrop-filter:blur(10px)}
 :root.dark .header-wrap{background:linear-gradient(180deg,rgba(24,24,32,.62),rgba(24,24,32,0))}
 header.header{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
 .brand{display:flex;align-items:center;gap:10px}
-.brand-logo{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(from 200deg at 50% 50%,var(--brand),var(--mint),var(--brand-2),var(--brand));box-shadow:var(--shadow-2)}
+.brand-logo{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(from 200deg,var(--brand),var(--mint),var(--brand-2),var(--brand));box-shadow:var(--shadow-2)}
 .brand-logo::after{content:"🧠";font-size:20px}
 .brand-name{font-weight:800}
 .nav a{padding:8px 12px;border-radius:12px}.nav a:hover{background:rgba(0,0,0,.05)}:root.dark .nav a:hover{background:rgba(255,255,255,.08)}
 .actions{display:flex;gap:8px}
 
 /* === 按鈕 / 膠囊 === */
-.btn,button{border:0;border-radius:999px;padding:10px 14px;background:var(--text);color:#fff;box-shadow:var(--shadow-2);cursor:pointer;transition:transform .12s ease}
-.btn:hover{transform:translateY(-1px)}.btn.secondary{background:linear-gradient(90deg,var(--brand),var(--brand-2))}
+.btn,button{border:0;border-radius:999px;padding:12px 18px;background:var(--btn-bg);color:var(--btn-fg);box-shadow:var(--shadow-2);cursor:pointer;transition:transform .12s ease,background-color .15s ease}
+.btn:hover{transform:translateY(-1px);background:var(--btn-bg-hover)}
+.btn.secondary{background:linear-gradient(90deg,var(--brand),var(--brand-2));color:#fff}
 .chip{border:1px solid rgba(0,0,0,.08);border-radius:999px;padding:10px 14px;background:var(--card);color:var(--text);box-shadow:var(--shadow-2);display:inline-flex;align-items:center;gap:6px}
 :root.dark .chip{border-color:rgba(255,255,255,.16)}
 .iconbtn{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--card);backdrop-filter:var(--glass);box-shadow:var(--shadow-2)}
@@ -65,14 +69,13 @@ header.header{display:flex;align-items:center;justify-content:space-between;padd
 .h1 i{font-style:normal;transform:rotate(-3deg);background:linear-gradient(90deg,var(--brand),var(--yolk));-webkit-background-clip:text;color:transparent}
 .subtitle{color:color-mix(in oklab,var(--muted) 86%,var(--text) 14%)}
 .hero-card{background:var(--card);backdrop-filter:var(--glass);border-radius:var(--radius-lg);padding:18px;box-shadow:var(--shadow);border:1px solid rgba(0,0,0,.06)}
-/* Hero 內主題膠囊（span）*/
 .hero-card .kv span{display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border-radius:999px;background:linear-gradient(90deg,var(--mint),var(--brand-2));color:#1d2a2a;border:1px solid rgba(0,0,0,.12);box-shadow:var(--shadow-2);font-weight:600}
 :root.dark .hero-card .kv span{border-color:rgba(255,255,255,.18)}
-.hero-illus{aspect-ratio:4/3;border-radius:22px;background:repeating-conic-gradient(from 0deg at 50% 50%,rgba(255,142,199,.22) 0 15deg,rgba(189,224,254,.22) 15deg 30deg,rgba(205,234,192,.22) 30deg 45deg);position:relative;overflow:hidden}
+.hero-illus{aspect-ratio:4/3;border-radius:22px;background:repeating-conic-gradient(from 0deg,rgba(255,142,199,.22) 0 15deg,rgba(189,224,254,.22) 15deg 30deg,rgba(205,234,192,.22) 30deg 45deg);position:relative;overflow:hidden}
 .sticker{position:absolute;filter:drop-shadow(0 8px 16px rgba(0,0,0,.15))}
 .sticker.s1{top:10%;left:8%;font-size:42px;rotate:-12deg}.sticker.s2{bottom:6%;right:10%;font-size:44px;rotate:8deg}.sticker.s3{top:12%;right:36%;font-size:36px;rotate:5deg}
 
-/* === 區塊與卡片 === */
+/* === 區塊 / 卡片 === */
 .section{padding:24px 0}
 .card{background:var(--card);backdrop-filter:var(--glass);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow-2);border:1px solid rgba(0,0,0,.08)}
 .kv{display:flex;gap:10px;flex-wrap:wrap}
