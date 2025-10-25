@@ -1,164 +1,116 @@
 /* ===============================
    Yan の小宇宙 — 高品質可愛風樣式（最終整合版）
-   適用頁面：index.html / notes.html / gallery.html / contact.html
-   特色：RWD、深淺色主題、A11y、燈箱、篩選、瀑布流、表單
    =============================== */
 
-/* 色板/陰影/圓角（強化對比，避免文字發灰看不清） */
+/* === 色板與陰影 === */
 :root{
-  --bg:#fff7fb; --bg-2:#fff1e6; --card:#ffffffee; --text:#2b2b34; --muted:#5e5e6b;
-  --brand:#ff8ec7; --brand-2:#bde0fe; --mint:#cdeac0; --yolk:#ffe599;
-  --shadow:0 10px 24px rgba(255,142,199,.22); --shadow-2:0 2px 8px rgba(0,0,0,.08);
-  --radius:20px; --radius-lg:28px; --glass:blur(10px) saturate(120%);
+  --bg:#fff7fb;--bg-2:#fff1e6;--card:#ffffffee;--text:#2b2b34;--muted:#5e5e6b;
+  --brand:#ff8ec7;--brand-2:#bde0fe;--mint:#cdeac0;--yolk:#ffe599;
+  --shadow:0 10px 24px rgba(255,142,199,.22);--shadow-2:0 2px 8px rgba(0,0,0,.08);
+  --radius:20px;--radius-lg:28px;--glass:blur(10px) saturate(120%);
   --focus:0 0 0 3px rgba(255,142,199,.5)
 }
 :root.dark{
-  --bg:#12121a; --bg-2:#181822; --card:#242433f2; --text:#f6f6fb; --muted:#c9c9d6;
-  --brand:#ff8ec7; --brand-2:#8ecbff; --mint:#9be6b5; --yolk:#ffdd7a;
-  --shadow:0 10px 24px rgba(0,0,0,.35); --shadow-2:0 2px 8px rgba(0,0,0,.25);
-  --glass:blur(10px) saturate(130%); --focus:0 0 0 3px rgba(142,197,255,.5)
+  --bg:#12121a;--bg-2:#181822;--card:#242433f2;--text:#f6f6fb;--muted:#c9c9d6;
+  --brand:#ff8ec7;--brand-2:#8ecbff;--mint:#9be6b5;--yolk:#ffdd7a;
+  --shadow:0 10px 24px rgba(0,0,0,.35);--shadow-2:0 2px 8px rgba(0,0,0,.25);
+  --glass:blur(10px) saturate(130%);--focus:0 0 0 3px rgba(142,197,255,.5)
 }
 
-/* 基礎排版 */
+/* === 基礎排版 === */
 *{box-sizing:border-box}
-html,body{height:100%}
-html{text-size-adjust:100%;-webkit-text-size-adjust:100%}
-body{
-  margin:0;
-  font:16px/1.75 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,'Noto Sans TC',PingFang TC,Helvetica,Arial;
-  background:
-    radial-gradient(1200px 600px at 10% -10%,var(--bg-2),transparent 65%),
-    radial-gradient(900px 520px at 110% 10%,var(--brand-2),transparent 45%),
-    linear-gradient(var(--bg),var(--bg));
-  color:var(--text);
-  -webkit-font-smoothing:antialiased;
-  scroll-behavior:smooth;
-}
-@media (max-width:980px){:root{font-size:15.5px}}
-@media (max-width:640px){:root{font-size:15px}}
-img{max-width:100%;height:auto;display:block}
-a{color:inherit}
-[hidden]{display:none!important}
+body{margin:0;font:16px/1.75 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,'Noto Sans TC',PingFang TC,Helvetica,Arial;
+  background:radial-gradient(1200px 600px at 10% -10%,var(--bg-2),transparent 65%),radial-gradient(900px 520px at 110% 10%,var(--brand-2),transparent 45%),linear-gradient(var(--bg),var(--bg));
+  color:var(--text);-webkit-font-smoothing:antialiased;scroll-behavior:smooth}
+@media(max-width:980px){:root{font-size:15.5px}}@media(max-width:640px){:root{font-size:15px}}
+img{max-width:100%;display:block}a{color:inherit;text-decoration:none}
 
-/* 版寬與簡易網格 */
+/* === 版寬與格線 === */
 .container{width:min(1100px,92vw);margin:auto}
-.row{display:grid;gap:18px}
-.grid-2{grid-template-columns:1.1fr .9fr}
-@media (max-width:980px){.grid-2{grid-template-columns:1fr}}
+.row{display:grid;gap:18px}.grid-2{grid-template-columns:1.1fr .9fr}
+@media(max-width:980px){.grid-2{grid-template-columns:1fr}}
 
-/* Header / Drawer / Overlay */
+/* === Header / Drawer === */
 .header-wrap{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,rgba(255,255,255,.82),rgba(255,255,255,0));backdrop-filter:blur(10px)}
 :root.dark .header-wrap{background:linear-gradient(180deg,rgba(24,24,32,.62),rgba(24,24,32,0))}
 header.header{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
 .brand{display:flex;align-items:center;gap:10px}
-.brand-logo{width:36px;height:36px;border-radius:50%;display:inline-grid;place-items:center;background:conic-gradient(from 200deg at 50% 50%,var(--brand),var(--mint),var(--brand-2),var(--brand));box-shadow:var(--shadow-2)}
+.brand-logo{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(from 200deg at 50% 50%,var(--brand),var(--mint),var(--brand-2),var(--brand));box-shadow:var(--shadow-2)}
 .brand-logo::after{content:"🧠";font-size:20px}
-.brand-name{font-weight:800;letter-spacing:.4px;text-decoration:none}
-.nav a{display:inline-block;padding:8px 12px;border-radius:12px;text-decoration:none}
-.nav a:hover{background:rgba(0,0,0,.05)}
-:root.dark .nav a:hover{background:rgba(255,255,255,.08)}
-.actions{display:flex;align-items:center;gap:8px}
+.brand-name{font-weight:800}
+.nav a{padding:8px 12px;border-radius:12px}.nav a:hover{background:rgba(0,0,0,.05)}:root.dark .nav a:hover{background:rgba(255,255,255,.08)}
+.actions{display:flex;gap:8px}
 
-/* 按鈕與膠囊（拆開管理，避免白字+淺底） */
+/* === 按鈕 / 膠囊 === */
 .btn,button{border:0;border-radius:999px;padding:10px 14px;background:var(--text);color:#fff;box-shadow:var(--shadow-2);cursor:pointer;transition:transform .12s ease}
-.btn:hover{transform:translateY(-1px)}
-.btn.secondary{background:linear-gradient(90deg,var(--brand),var(--brand-2))}
-.chip{border:1px solid rgba(0,0,0,.08);border-radius:999px;padding:10px 14px;background:var(--card);color:var(--text);box-shadow:var(--shadow-2);text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+.btn:hover{transform:translateY(-1px)}.btn.secondary{background:linear-gradient(90deg,var(--brand),var(--brand-2))}
+.chip{border:1px solid rgba(0,0,0,.08);border-radius:999px;padding:10px 14px;background:var(--card);color:var(--text);box-shadow:var(--shadow-2);display:inline-flex;align-items:center;gap:6px}
 :root.dark .chip{border-color:rgba(255,255,255,.16)}
-.iconbtn{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--card);backdrop-filter:var(--glass);box-shadow:var(--shadow-2);border:1px solid rgba(0,0,0,.08)}
-.iconbtn:focus-visible,.btn:focus-visible,.chip:focus-visible,.nav a:focus-visible{outline:none;box-shadow:var(--focus)}
+.iconbtn{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--card);backdrop-filter:var(--glass);box-shadow:var(--shadow-2)}
+.iconbtn:focus-visible,.btn:focus-visible,.chip:focus-visible{outline:none;box-shadow:var(--focus)}
 
-/* Drawer */
+/* === Drawer === */
 .drawer{position:fixed;inset:0 0 0 auto;width:min(320px,85vw);translate:100% 0;background:var(--bg-2);box-shadow:-12px 0 30px rgba(0,0,0,.15);transition:translate .3s ease;z-index:60;padding:18px}
 .drawer.open{translate:0 0}
 .overlay{position:fixed;inset:0;background:rgba(0,0,0,.18);backdrop-filter:blur(2px);opacity:0;pointer-events:none;transition:opacity .28s ease;z-index:55}
 .overlay.show{opacity:1;pointer-events:auto}
 
-/* Hero */
-.hero{position:relative;padding:28px 0 18px 0}
+/* === Hero === */
+.hero{padding:28px 0 18px 0}
 .badges{display:flex;gap:10px;flex-wrap:wrap}
 .badges .chip{background:linear-gradient(90deg,var(--yolk),var(--brand-2));color:#222;border-color:rgba(0,0,0,.12)}
 .hero-wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:22px;align-items:center}
-@media (max-width:980px){.hero-wrap{grid-template-columns:1fr}}
-.h1{font-size:clamp(28px,4vw,42px);font-weight:900;letter-spacing:.6px;margin:6px 0 8px 0}
-.h1 i{font-style:normal;display:inline-block;transform:rotate(-3deg);background:linear-gradient(90deg,var(--brand),var(--yolk));-webkit-background-clip:text;background-clip:text;color:transparent}
-.subtitle{color:color-mix(in oklab, var(--muted) 86%, var(--text) 14%)}
+@media(max-width:980px){.hero-wrap{grid-template-columns:1fr}}
+.h1{font-size:clamp(28px,4vw,42px);font-weight:900;margin:6px 0 8px 0}
+.h1 i{font-style:normal;transform:rotate(-3deg);background:linear-gradient(90deg,var(--brand),var(--yolk));-webkit-background-clip:text;color:transparent}
+.subtitle{color:color-mix(in oklab,var(--muted) 86%,var(--text) 14%)}
 .hero-card{background:var(--card);backdrop-filter:var(--glass);border-radius:var(--radius-lg);padding:18px;box-shadow:var(--shadow);border:1px solid rgba(0,0,0,.06)}
+/* Hero 內主題膠囊（span）*/
+.hero-card .kv span{display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border-radius:999px;background:linear-gradient(90deg,var(--mint),var(--brand-2));color:#1d2a2a;border:1px solid rgba(0,0,0,.12);box-shadow:var(--shadow-2);font-weight:600}
+:root.dark .hero-card .kv span{border-color:rgba(255,255,255,.18)}
 .hero-illus{aspect-ratio:4/3;border-radius:22px;background:repeating-conic-gradient(from 0deg at 50% 50%,rgba(255,142,199,.22) 0 15deg,rgba(189,224,254,.22) 15deg 30deg,rgba(205,234,192,.22) 30deg 45deg);position:relative;overflow:hidden}
-.sticker{position:absolute;translate:0 0;filter:drop-shadow(0 8px 16px rgba(0,0,0,.15))}
-.sticker.s1{top:10%;left:8%;font-size:42px;rotate:-12deg}
-.sticker.s2{bottom:6%;right:10%;font-size:44px;rotate:8deg}
-.sticker.s3{top:12%;right:36%;font-size:36px;rotate:5deg}
+.sticker{position:absolute;filter:drop-shadow(0 8px 16px rgba(0,0,0,.15))}
+.sticker.s1{top:10%;left:8%;font-size:42px;rotate:-12deg}.sticker.s2{bottom:6%;right:10%;font-size:44px;rotate:8deg}.sticker.s3{top:12%;right:36%;font-size:36px;rotate:5deg}
 
-/* 區塊/卡片（提升對比，避免「看不到字」） */
+/* === 區塊與卡片 === */
 .section{padding:24px 0}
 .card{background:var(--card);backdrop-filter:var(--glass);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow-2);border:1px solid rgba(0,0,0,.08)}
-.card h3{margin:0 0 10px 0;font-size:20px}
 .kv{display:flex;gap:10px;flex-wrap:wrap}
-/* 卡片中的鏈接膠囊：亮色漸層＋深色字 */
 .kv .chip{background:linear-gradient(90deg,var(--mint),var(--brand-2));color:#1d2a2a;border-color:rgba(0,0,0,.12)}
 :root.dark .kv .chip{border-color:rgba(255,255,255,.18)}
-.list{display:grid;gap:10px}
 .note{border-radius:16px;border:2px dashed rgba(0,0,0,.12);padding:12px;background:linear-gradient(180deg,#ffffff,#fff9);color:var(--text)}
 :root.dark .note{background:linear-gradient(180deg,#2b2b38,#2b2b38ea);color:#eef0f6}
 
-/* 瀑布流（notes / gallery 共用） */
-.masonry{columns:3;column-gap:14px}
-@media (max-width:980px){.masonry{columns:2}}
-@media (max-width:640px){.masonry{columns:1}}
-.pin{break-inside:avoid;padding:12px;margin:0 0 14px 0;border-radius:18px;background:var(--card);backdrop-filter:var(--glass);box-shadow:var(--shadow-2);border:1px solid rgba(0,0,0,.08);transition:transform .15s ease,box-shadow .15s ease}
+/* === 瀑布流 === */
+.masonry{columns:3;column-gap:14px}@media(max-width:980px){.masonry{columns:2}}@media(max-width:640px){.masonry{columns:1}}
+.pin{break-inside:avoid;padding:12px;margin-bottom:14px;border-radius:18px;background:var(--card);backdrop-filter:var(--glass);box-shadow:var(--shadow-2);border:1px solid rgba(0,0,0,.08);transition:transform .15s ease,box-shadow .15s ease}
 .pin:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
-.pin h4{margin:0 0 6px 0}
-.pin img{border-radius:12px}
+.pin h4{margin:0 0 6px 0}.pin img{border-radius:12px}
 .tag{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(0,0,0,.08);color:#1f1f1f;font-size:12px;margin-left:6px}
 :root.dark .tag{background:rgba(255,255,255,.12);color:#f2f2f2}
-.caption{display:flex;align-items:center;justify-content:space-between;margin-top:6px;color:color-mix(in oklab, var(--text) 88%, black 12%);opacity:1;font-size:14px}
+.caption{display:flex;justify-content:space-between;margin-top:6px;color:color-mix(in oklab,var(--text) 88%,black 12%)}
 
-/* 表格/心理學小卡 */
-.table{width:100%;border-collapse:separate;border-spacing:0 10px}
-.table th,.table td{padding:10px 12px;text-align:left;color:var(--text)}
-.table tr{background:var(--card);backdrop-filter:var(--glass);box-shadow:var(--shadow-2)}
-.table tr td:first-child,.table tr th:first-child{border-radius:14px 0 0 14px}
-.table tr td:last-child,.table tr th:last-child{border-radius:0 14px 14px 0}
-.psych-card{display:grid;gap:6px;padding:14px;border-radius:18px;background:linear-gradient(180deg,rgba(255,142,199,.16),rgba(189,224,254,.16));border:1px dashed rgba(0,0,0,.12);color:var(--text)}
-:root.dark .psych-card{border-color:rgba(255,255,255,.18)}
+/* === 篩選與燈箱 === */
+.filters{display:flex;flex-wrap:wrap;gap:10px;margin:4px 0 6px 0}
+.filters .chip{background:linear-gradient(90deg,var(--mint),var(--brand-2));color:#243;border-color:rgba(0,0,0,.12)}
+.filters .chip.is-active{outline:2px solid rgba(0,0,0,.16)}:root.dark .filters .chip.is-active{outline-color:rgba(255,255,255,.22)}
+dialog#lightbox{border:0;padding:0;background:transparent}
+dialog#lightbox::backdrop{background:rgba(0,0,0,.45);backdrop-filter:blur(2px)}
+#lightbox{width:100vw;height:100vh;display:grid;place-items:center}
+.lightbox-close{position:fixed;top:16px;right:16px;width:44px;height:44px;border-radius:50%;border:0;background:var(--card);box-shadow:var(--shadow-2)}
+#lightbox-img{max-width:min(92vw,1100px);max-height:84vh;border-radius:16px;box-shadow:var(--shadow)}
+.lightbox-cap{margin-top:10px;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.6);text-align:center}
 
-/* 表單 */
+/* === 表單 === */
 .input{padding:12px;border-radius:12px;border:1px solid rgba(0,0,0,.12);background:var(--bg-2);color:var(--text)}
 .input:focus-visible{outline:none;box-shadow:var(--focus)}
 .toast{display:none;padding:10px;border-radius:10px;background:linear-gradient(90deg,var(--mint),var(--brand-2));color:#143}
 
-/* Footer */
+/* === Footer === */
 footer{padding:28px 0 40px 0;color:var(--muted);text-align:center}
 
-/* 入場效果（由 JS 控制 .show） */
-.reveal{opacity:0;transform:translateY(10px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1)}
+/* === 動畫與可及性 === */
+.reveal{opacity:0;transform:translateY(10px);transition:opacity .6s,transform .6s cubic-bezier(.2,.7,.2,1)}
 .reveal.show{opacity:1;transform:none}
-
-/* 跳到主內容（A11y） */
-.skip{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
-.skip:focus{left:8px;top:8px;width:auto;height:auto;padding:8px 10px;background:#000;color:#fff;border-radius:8px;z-index:100}
-
-/* 首圖可換成照片：在 HTML 加 .hero-photo 即生效 */
-.hero-photo{background:url(images/yan-hero.jpg) center/cover}
-
-/* Gallery：篩選/燈箱 */
-.filters{display:flex;flex-wrap:wrap;gap:10px;margin:4px 0 6px 0}
-/* 篩選 Chip：維持亮色底與高對比文字 */
-.filters .chip{background:linear-gradient(90deg,var(--mint),var(--brand-2));color:#243;border-color:rgba(0,0,0,.12)}
-.filters .chip.is-active{outline:2px solid rgba(0,0,0,.16)}
-:root.dark .filters .chip.is-active{outline-color:rgba(255,255,255,.22)}
-/* <dialog> lightbox */
-dialog#lightbox{border:0;padding:0;background:transparent}
-dialog#lightbox::backdrop{background:rgba(0,0,0,.45);backdrop-filter:blur(2px)}
-#lightbox{width:100vw;height:100vh;display:grid;place-items:center}
-.lightbox-close{position:fixed;top:16px;right:16px;width:44px;height:44px;border-radius:50%;border:0;background:var(--card);box-shadow:var(--shadow-2);cursor:pointer}
-.lightbox-close:focus-visible{outline:none;box-shadow:var(--focus)}
-#lightbox-img{max-width:min(92vw,1100px);max-height:84vh;border-radius:16px;box-shadow:var(--shadow);background:#000}
-.lightbox-cap{margin-top:10px;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.6);text-align:center}
-
-/* 降低動態支援 */
-@media (prefers-reduced-motion:reduce){
-  *{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
-  .reveal{opacity:1!important;transform:none!important}
-}
+.skip{position:absolute;left:-9999px}.skip:focus{left:8px;top:8px;padding:8px 10px;background:#000;color:#fff;border-radius:8px;z-index:100}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.reveal{opacity:1!important;transform:none!important}}
