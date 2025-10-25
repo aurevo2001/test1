@@ -43,31 +43,30 @@ header.header{display:flex;align-items:center;justify-content:space-between;padd
 .nav a{padding:8px 12px;border-radius:12px}.nav a:hover{background:rgba(0,0,0,.05)}:root.dark .nav a:hover{background:rgba(255,255,255,.08)}
 .actions{display:flex;gap:8px}
 
+/* === Icon Buttons 改良＋居中 === */
+.iconbtn{
+  width:48px;height:48px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;line-height:1;
+  background:linear-gradient(180deg,color-mix(in oklab,var(--card) 88%,white 12%),color-mix(in oklab,var(--card) 70%,black 30%));
+  border:1px solid rgba(0,0,0,.1);
+  box-shadow:0 2px 6px rgba(0,0,0,.12),var(--shadow-2);
+  transition:transform .15s ease,box-shadow .15s ease;
+}
+:root.dark .iconbtn{
+  background:linear-gradient(180deg,color-mix(in oklab,#ffffff 25%,var(--card) 75%),color-mix(in oklab,#000000 10%,var(--card) 90%));
+  border-color:rgba(255,255,255,.2);
+}
+.iconbtn:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(0,0,0,.15),var(--shadow)}
+.iconbtn:active{transform:translateY(0)}
+.iconbtn:focus-visible{outline:none;box-shadow:var(--focus),0 2px 8px rgba(0,0,0,.25)}
+
 /* === 按鈕 / 膠囊 === */
 .btn,button{border:0;border-radius:999px;padding:12px 18px;background:var(--btn-bg);color:var(--btn-fg);box-shadow:var(--shadow-2);cursor:pointer;transition:transform .12s ease,background-color .15s ease}
 .btn:hover{transform:translateY(-1px);background:var(--btn-bg-hover)}
 .btn.secondary{background:linear-gradient(90deg,var(--brand),var(--brand-2));color:#fff}
 .chip{border:1px solid rgba(0,0,0,.08);border-radius:999px;padding:10px 14px;background:var(--card);color:var(--text);box-shadow:var(--shadow-2);display:inline-flex;align-items:center;gap:6px}
 :root.dark .chip{border-color:rgba(255,255,255,.16)}
-
-/* === Icon Buttons 改良 === */
-.iconbtn{
-  width:44px;height:44px;border-radius:999px;
-  display:grid;place-items:center;
-  font-size:20px;line-height:1;
-  background:linear-gradient(180deg,color-mix(in oklab,var(--card) 85%,white 15%),color-mix(in oklab,var(--card) 70%,black 30%));
-  border:1px solid rgba(0,0,0,.10);
-  box-shadow:0 2px 6px rgba(0,0,0,.12),var(--shadow-2);
-  transition:transform .12s ease,box-shadow .15s ease,background .15s ease,border-color .15s ease;
-}
-:root.dark .iconbtn{
-  background:linear-gradient(180deg,color-mix(in oklab,#ffffff 20%,var(--card) 80%),color-mix(in oklab,#000000 15%,var(--card) 85%));
-  border-color:rgba(255,255,255,.18);
-  box-shadow:0 2px 8px rgba(0,0,0,.35);
-}
-.iconbtn:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(0,0,0,.14),var(--shadow)}
-.iconbtn:active{transform:translateY(0);box-shadow:0 2px 6px rgba(0,0,0,.18)}
-.iconbtn:focus-visible{outline:none;box-shadow:var(--focus),0 2px 8px rgba(0,0,0,.2)}
 
 /* === Drawer === */
 .drawer{position:fixed;inset:0 0 0 auto;width:min(320px,85vw);translate:100% 0;background:var(--bg-2);box-shadow:-12px 0 30px rgba(0,0,0,.15);transition:translate .3s ease;z-index:60;padding:18px}
